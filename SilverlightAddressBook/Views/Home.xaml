@@ -1,0 +1,82 @@
+﻿<navigation:Page
+  x:Class="SilverlightAddressBook.Home" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  xmlns:dataform="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+  xmlns:local="clr-namespace:SilverlightAddressBook.Controls"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
+  Style="{StaticResource PageStyle}" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:SilverlightAddressBook.Web.Services" xmlns:my1="clr-namespace:SilverlightAddressBook.Web.Models" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+  <Grid x:Name="LayoutRoot">
+        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+
+            <local:BusyIndicator IsBusy="{Binding ElementName=contactDomainDataSource, Path=IsBusy}" >
+                <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}" HorizontalAlignment="Center" Orientation="Horizontal">
+                
+                <sdk:DataGrid AutoGenerateColumns="False" ColumnWidth="Auto" ItemsSource="{Binding ElementName=contactDomainDataSource, Path=Data}" MaxWidth="522" MinWidth="522" Name="contactDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Width="Auto" Margin="12">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding Path=FirstName}" Header="First Name" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding Path=LastName}" Header="Last Name" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding Path=PhoneNumber}" Header="Phone Number" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="mobileNumberColumn" Binding="{Binding Path=MobileNumber}" Header="Mobile Number" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="emailColumn" Binding="{Binding Path=Email}" Header="Email" Width="150" />
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+                <StackPanel Orientation="Vertical">
+                <toolkit:DataForm AutoCommit="False" AutoEdit="False" AutoGenerateFields="False" Header="Contact Info" ItemsSource="{Binding ElementName=contactDomainDataSource, Path=Data}" MaxWidth="500" MinWidth="500" Name="ContactInfoForm" Width="500" Margin="12">
+                    <StackPanel>
+                        <toolkit:DataField Label="First Name">
+                            <TextBox Text="{Binding FirstName, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Last Name">
+                            <TextBox Text="{Binding LastName, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Address">
+                            <TextBox Text="{Binding Address, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Postal Code">
+                            <TextBox Text="{Binding PostalCode, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="City">
+                            <TextBox Text="{Binding City, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Province">
+                            <TextBox Text="{Binding Province, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Country">
+                            <TextBox Text="{Binding Country, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Phone Number">
+                            <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Mobile Number">
+                            <TextBox Text="{Binding MobileNumber, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Email">
+                            <TextBox Text="{Binding Email, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                        <toolkit:DataField Label="Notes">
+                            <TextBox MinHeight="100" Text="{Binding Notes, Mode=TwoWay}" />
+                        </toolkit:DataField>
+                    </StackPanel>
+                </toolkit:DataForm>
+                <Button Click="SaveChangesButton_Click" Content="Submit Changes" Name="SaveChangesButton" Margin="12"/>
+                <Button Click="ReloadDataButton_Click" Content="Reload Data" Name="ReloadDataButton" Margin="12"/>
+                </StackPanel>
+
+                
+            </StackPanel>
+            </local:BusyIndicator>
+
+        </ScrollViewer>
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Contact, CreateList=true}" Height="0" LoadedData="contactDomainDataSource_LoadedData" Name="contactDomainDataSource" QueryName="GetContactsQuery" Width="0">
+            <riaControls:DomainDataSource.DomainContext>
+                <my:ContactInofDomainContext />
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+       
+    </Grid>
+
+</navigation:Page>

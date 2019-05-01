@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ContactInfoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ContactInfoModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="ContactInfoModel.Store.Contact" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="20" />
+          <Property Name="Province" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="16" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="16" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="varchar(max)" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ContactInfoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ContactInfoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="ContactInfoModel.Contact" />
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Province" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ContactInfoModelStoreContainer" CdmEntityContainer="ContactInfoEntities">
+          <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="ContactInfoModel.Contact"><MappingFragment StoreEntitySet="Contact">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+            <ScalarProperty Name="Province" ColumnName="Province" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+            <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Notes" ColumnName="Notes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ContactInfoModel">
+        <EntityTypeShape EntityType="ContactInfoModel.Contact" Width="1.5" PointX="0.75" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightAddressBook", "SilverlightAddressBook\SilverlightAddressBook.csproj", "{3AB51ED1-FFAB-4158-BDB5-2DCF78984CAB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4E049775-C498-45D5-9862-50C3A94E3854} = {4E049775-C498-45D5-9862-50C3A94E3854}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightAddressBook.Web", "SilverlightAddressBook.Web\SilverlightAddressBook.Web.csproj", "{4E049775-C498-45D5-9862-50C3A94E3854}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CEF0DD79-4D9B-4BF3-8825-24405DF01FD7}"
+	ProjectSection(SolutionItems) = preProject
+		license.txt = license.txt
+		readme.txt = readme.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AB51ED1-FFAB-4158-BDB5-2DCF78984CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB51ED1-FFAB-4158-BDB5-2DCF78984CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB51ED1-FFAB-4158-BDB5-2DCF78984CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB51ED1-FFAB-4158-BDB5-2DCF78984CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E049775-C498-45D5-9862-50C3A94E3854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E049775-C498-45D5-9862-50C3A94E3854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E049775-C498-45D5-9862-50C3A94E3854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E049775-C498-45D5-9862-50C3A94E3854}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
